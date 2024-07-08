@@ -96,16 +96,23 @@ public class MainActivity extends AppCompatActivity {
 
 
                    btGo.setOnClickListener(new View.OnClickListener() {
-                       @Override
-                       public void onClick(View view) {
-                           Intent intent = new Intent(MainActivity.this,MainActivity2.class);
-                           intent.putExtra("LatTujuan",etLat.getText().toString());
-                           intent.putExtra("LongTujuan",etLong.getText().toString());
-                           intent.putExtra("LatAsal",String.valueOf(LatCurrentPosition));
-                           intent.putExtra("LongAsal",String.valueOf(LongCurrentPosition));
-                           startActivity(intent);
-                       }
-                   });
+                    @Override
+                    public void onClick(View v) {
+                        try {
+                            double latitude = Double.parseDouble(etLat.getText().toString());
+                            double longitude = Double.parseDouble(etLong.getText().toString());
+                
+                            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                            intent.putExtra("LatTujuan", latitude);
+                            intent.putExtra("LongTujuan", longitude);
+                            // 如果需要的話，還可以傳遞其他座標或數據
+                            startActivity(intent);
+                        } catch (NumberFormatException e) {
+                            Toast.makeText(MainActivity.this, "Please enter valid coordinates", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                
                }
            }
        });
@@ -180,4 +187,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    
 }
+

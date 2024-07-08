@@ -26,7 +26,7 @@
         android:ems="10"
         android:hint="Latitude"
         android:inputType="textPersonName"
-        android:enabled="false"
+        android:enabled="true"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MyMap" />
@@ -39,7 +39,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Longitude"
-        android:enabled="false"
+        android:enabled="true"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
